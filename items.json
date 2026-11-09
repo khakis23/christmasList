@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Merino Wool Beanie",
+    "description": "Charcoal gray or dark forest green, ribbed cuff.",
+    "links": [
+      {
+        "label": "Patagonia",
+        "url": "https://www.patagonia.com"
+      }
+    ]
+  },
+  {
+    "title": "Ceramic Pour-Over Dripper",
+    "description": "Matte white or earth tone ceramic, size 02.",
+    "links": [
+      {
+        "label": "Hario V60",
+        "url": "https://www.hario-usa.com"
+      },
+      {
+        "label": "Fellow Products",
+        "url": "https://fellowproducts.com"
+      }
+    ]
+  },
+  {
+    "title": "Field Notes Expedition Notebooks",
+    "description": "3-pack of waterproof grid notebooks.",
+    "links": [
+      "https://fieldnotesbrand.com"
+    ]
+  },
+  {
+    "title": "Cast Iron Skillet (10-inch)",
+    "description": "Pre-seasoned, traditional handle.",
+    "link": "https://www.lodgecastiron.com"
+  },
+  {
+    "title": "Espresso Coffee Beans",
+    "description": "Whole bean, light or medium roast from any local roaster."
+  }
+]

@@ -95,7 +95,7 @@ export function normalizeItems(rawList: RawItem[]): ChristmasItem[] {
 
           if (url) {
             const label = rawLabel || getDomainLabel(url) || `Link ${entryIndex + 1}`;
-            if (!cleanLinks.some((l) => l.url === url)) {
+            if (!cleanLinks.some((l) => l.url === url && l.label === label)) {
               cleanLinks.push({ label, url });
             }
           } else if (rawLabel) {

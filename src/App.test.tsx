@@ -69,6 +69,22 @@ describe('Utility: normalizeItems', () => {
     expect(items[0].links[0].label).toBe('amazon.com');
   });
 
+  it('retains multiple links pointing to the same URL if they have distinct labels', () => {
+    const items = normalizeItems([
+      {
+        title: 'TPU Inner Tubes',
+        links: [
+          { label: '2 Pack', url: 'https://example.com/product' },
+          { label: '4 Pack', url: 'https://example.com/product' },
+        ],
+      },
+    ]);
+
+    expect(items[0].links.length).toBe(2);
+    expect(items[0].links[0].label).toBe('2 Pack');
+    expect(items[0].links[1].label).toBe('4 Pack');
+  });
+
   it('filters out items without a valid title', () => {
     const items = normalizeItems([
       { title: '' },

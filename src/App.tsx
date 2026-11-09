@@ -3,6 +3,7 @@ import { ExternalLink, Sparkles } from 'lucide-react';
 import rawItems from '../items.json';
 import { normalizeItems } from './utils';
 import { ChristmasItem, RawItem } from './types';
+import { CopyableTag } from './CopyableTag';
 
 export const App: React.FC<{ itemsOverride?: RawItem[] }> = ({ itemsOverride }) => {
   const items: ChristmasItem[] = useMemo(() => {
@@ -51,13 +52,10 @@ export const App: React.FC<{ itemsOverride?: RawItem[] }> = ({ itemsOverride }) 
                   {item.tags.length > 0 && (
                     <div className="flex flex-wrap gap-1.5 pt-1">
                       {item.tags.map((tag, idx) => (
-                        <span
+                        <CopyableTag
                           key={`${item.id}-tag-${idx}`}
-                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-normal text-warm-800 bg-warm-100/90 border border-warm-200/90 select-none"
-                        >
-                          <span className="w-1.5 h-1.5 rounded-full bg-warm-400 shrink-0" aria-hidden="true" />
-                          <span>{tag.label}</span>
-                        </span>
+                          label={tag.label}
+                        />
                       ))}
                     </div>
                   )}

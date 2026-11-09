@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { render, screen, fireEvent, act } from '@testing-library/react';
 import App from './App';
 import { normalizeItems, getDomainLabel, normalizeLink, extractUrl } from './utils';
 import rawItems from '../items.json';
@@ -81,11 +81,24 @@ describe('Utility: normalizeItems', () => {
 });
 
 describe('App component', () => {
+  beforeEach(() => {
+    vi.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] });
+    Object.assign(navigator, {
+      clipboard: {
+        writeText: vi.fn().mockResolvedValue(undefined),
+      },
+    });
+  });
+
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+
   it('renders default Christmas list items from items.json dynamically', () => {
     render(<App />);
 
     expect(screen.getByRole('heading', { level: 1, name: /Christmas List/i })).toBeInTheDocument();
-    
+
     (rawItems as any[]).forEach((item) => {
       if (item.title) {
         expect(screen.getByText(item.title)).toBeInTheDocument();
@@ -93,7 +106,7 @@ describe('App component', () => {
     });
   });
 
-  it('renders labels without links as informational badges distinct from links', () => {
+  it('renders labels without links as copyable badges distinct from links', () => {
     const customItems = [
       {
         title: 'Road Biking Helmet',
@@ -106,13 +119,98 @@ describe('App component', () => {
 
     render(<App itemsOverride={customItems} />);
 
-    const tag = screen.getByText('Giant Rev Comp MIPS');
-    expect(tag).toBeInTheDocument();
-    expect(tag.closest('a')).toBeNull();
+    const tagButton = screen.getByRole('button', { name: /Copy Giant Rev Comp MIPS/i });
+    expect(tagButton).toBeInTheDocument();
+    expect(tagButton.closest('a')).toBeNull();
 
     const link = screen.getByRole('link', { name: /example.com/i });
     expect(link).toHaveAttribute('href', 'https://example.com/store');
     expect(link).toHaveAttribute('target', '_blank');
+  });
+
+  it('copies label to clipboard on click with visual confirmation', async () => {
+    const customItems = [
+      {
+        title: 'Road Biking Helmet',
+        links: [{ label: 'Specialized Chamonix 3' }],
+      },
+    ];
+
+    render(<App itemsOverride={customItems} />);
+
+    const tagButton = screen.getByRole('button', { name: /Copy Specialized Chamonix 3/i });
+    
+    await act(async () => {
+      fireEvent.click(tagButton);
+    });
+
+    expect(navigator.clipboard.writeText).toHaveBeenCalledWith('Specialized Chamonix 3');
+    expect(screen.getByText('Copied')).toBeInTheDocument();
+
+    // Fast-forward past feedback timeout
+    act(() => {
+      vi.advanceTimersByTime(1600);
+    });
+
+    expect(screen.queryByText('Copied')).not.toBeInTheDocument();
+  });
+
+  it('copies label to clipboard on touch hold for mobile devices', async () => {
+    const customItems = [
+      {
+        title: 'Road Biking Helmet',
+        links: [{ label: 'Lazser Tonic MIPS' }],
+      },
+    ];
+
+    render(<App itemsOverride={customItems} />);
+
+    const tagButton = screen.getByRole('button', { name: /Copy Lazser Tonic MIPS/i });
+
+    // Touch down
+    fireEvent.touchStart(tagButton, {
+      touches: [{ clientX: 100, clientY: 100 }],
+    });
+
+    // Advance timer past long-press threshold
+    await act(async () => {
+      vi.advanceTimersByTime(500);
+    });
+
+    expect(navigator.clipboard.writeText).toHaveBeenCalledWith('Lazser Tonic MIPS');
+    expect(screen.getByText('Copied')).toBeInTheDocument();
+
+    // Touch up
+    fireEvent.touchEnd(tagButton);
+  });
+
+  it('cancels touch hold if user scrolls on mobile', async () => {
+    const customItems = [
+      {
+        title: 'Road Biking Helmet',
+        links: [{ label: 'P2R A20 MIPS' }],
+      },
+    ];
+
+    render(<App itemsOverride={customItems} />);
+
+    const tagButton = screen.getByRole('button', { name: /Copy P2R A20 MIPS/i });
+
+    fireEvent.touchStart(tagButton, {
+      touches: [{ clientX: 100, clientY: 100 }],
+    });
+
+    // User moves finger (scrolling)
+    fireEvent.touchMove(tagButton, {
+      touches: [{ clientX: 100, clientY: 150 }],
+    });
+
+    await act(async () => {
+      vi.advanceTimersByTime(500);
+    });
+
+    expect(navigator.clipboard.writeText).not.toHaveBeenCalled();
+    expect(screen.queryByText('Copied')).not.toBeInTheDocument();
   });
 
   it('renders descriptions when present and omits when absent', () => {

@@ -1,42 +1,66 @@
 [
   {
-    "title": "Merino Wool Beanie",
-    "description": "Charcoal gray or dark forest green, ribbed cuff.",
-    "links": [
-      {
-        "label": "Patagonia",
-        "url": "https://www.patagonia.com"
-      }
-    ]
+    "title": "Shoes",
+    "description": "Size 12"
   },
   {
-    "title": "Ceramic Pour-Over Dripper",
-    "description": "Matte white or earth tone ceramic, size 02.",
+    "title": "Road Biking Helmet",
     "links": [
       {
-        "label": "Hario V60",
-        "url": "https://www.hario-usa.com"
+        "label": "P2R A20 MIPS"
       },
       {
-        "label": "Fellow Products",
-        "url": "https://fellowproducts.com"
+        "label": "Giant Rev Comp MIPS"
+      },
+      {
+        "label": "Specialized Chamonix 3"
+      },
+      {
+        "label": "Lazser Tonic MIPS"
       }
     ]
   },
   {
-    "title": "Field Notes Expedition Notebooks",
-    "description": "3-pack of waterproof grid notebooks.",
+    "title": "Lifting Straps",
+    "description": "Any compforatble lifting straps will do. Here is just an example.",
     "links": [
-      "https://fieldnotesbrand.com"
+      {
+        "link": "https://www.amazon.com/Fitgriff%C2%AE-Lifting-Weightlifting-Deadlift-Workout/dp/B0C5MZG84J/ref=sr_1_3_sspa?crid=2HV2Z6ZHB2Z1I&dib=eyJ2IjoiMSJ9.z2A63hV__Rm7pkGd_Bw1pDblhkMH8UtOyWrFr6RIfLZrPtR_LtQXqQTtZoRFna9z1QORgANyiBBAxAyK8TRgxMGNK03A9Br1qsfifedqDkqXPO-o3kNbfrRY6WrQWfpIZTD6YhiBNA-yVMO_Rv7pEaJFZEeUn-mJFqJrkY7TAf5Oaio9WFRUx5aEqQgtqEC2oKs0IcHEGrX-ILMq7e8Pbklfw8SWQPObe4CfIcgZA4sTwY7gNXYbtx8Aax0iDOXGhSY6DN2ox2CXPJ1245UXoiOC1m3PPmLPfAtZn46204M.4JF-ipuVAAj0mwQvy5OsKGUR5EpwAtAsAx9m0bCXQ_k&dib_tag=se&keywords=lifting%2Bstraps&qid=1794080479&sprefix=lifting%2Bstra%2Caps%2C560&sr=8-3-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1"
+      }
     ]
   },
   {
-    "title": "Cast Iron Skillet (10-inch)",
-    "description": "Pre-seasoned, traditional handle.",
-    "link": "https://www.lodgecastiron.com"
+    "title": "Bikes Jerseys",
+    "description": "Long and/or short sleeve; size Large; Athletic fit (between slim and regular).",
   },
   {
-    "title": "Espresso Coffee Beans",
-    "description": "Whole bean, light or medium roast from any local roaster."
+    "title": "Bike Horn",
+    "description": "Anything works; here is an example.",
+    "links": [
+      {
+        "link": "https://www.amazon.com/LESOVI-Rechargeable-Waterproof-Anti-dust-Certified/dp/B07QMFNLZT/ref=sr_1_2_sspa?crid=1I1P0GPZAEV3A&dib=eyJ2IjoiMSJ9.I6lAIV-x0QVqPsU6vZl4w4vOl6raDjNaxv1FbjDgOa3eBUMlx3F5mju6Q-WGvjUYogREbGHBbw9pNMDC5Qd2zdPDAN67Ah41a38XQXZ4RaXD5gVghpjnMXC6afo5aMQis90oTKyj20o69QJ0nbJyxXug5A8cV3RH4qtZKCz7g5p8DK3Hrn9XD-M0rpmD4CsaD6rMnXfRk78Wp3Zh_R7sNoCRISd83P4Y9ZcX27s0cxk-suOp6IOva4zZYKujlTkY1mPvhDEVJj9IlvMKMMv53rPv2ShLX1zpcQPE5RC_6KE.t9KuhcMzeRRDbgNT_lbtGnSErnT4T7JDIsBz0oCskSg&dib_tag=se&keywords=bike%2Bhorn%2Bloud&qid=1794080370&sprefix=bike%2Bhorn%2Blou%2Caps%2C430&sr=8-2-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1"
+      }
+    ]
+  },
+  {
+    "title": "Handheld Torque Wrench",
+    "description": "For my bike—any handheld torque wrench will do. Here is just an example.",
+    "links": [
+      {
+        "link": "https://www.amazon.com/Matework-26-6-221-3-Dual-Direction-Maintenance-Precision/dp/B0GDWB4YGB/ref=sr_1_8?crid=36E0EV0X4VRJ2&dib=eyJ2IjoiMSJ9.CKc658v2iW-N361Wahi_xViN5MvO_XPhQmCb8lUpf-EOUfwanio44LdgBuCUCPIeq2zU8hcvE_z4GpZqeuqJGo4y7NLxuS3D2WKRF6Gw92qdaA45vExwS7G6u7ONBCpYNLyrjn1uIINJxNdhoC4ZL3uqtzPdE0cWiYRaJwAYPn_6NMbjTgLeLSpoOgihmiIWzUqMoxHeUi-yWQr7JsBhOOJ0ugXhC7Zn3Ghn7VYjzYAPBWESSjsOWUk4LPka0uI2bxDQ3SNgC2h2Naoc0e1zAmieYdRqMZ93bCvwt00Nchs.A837FC7XLLAMt_5hNK3d2V9YseLtGhl9kkyWaNr5RPw&dib_tag=se&keywords=bike%2Btorque%2Bwrench&qid=1794184327&sprefix=bike%2Btorque%2Bwrench%2Caps%2C279&sr=8-8&th=1"
+      }
+    ]
+  },
+  {
+    "title": "Shirts",
+    "description": "Nice long or short sleeve shirts.",
+    "links": [
+      {
+        "label": "Long Sleeve: size X-Large"
+      },
+      {
+        "label": "Short Sleeve: size Large"
+      }
+    ]
   }
 ]

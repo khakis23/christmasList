@@ -48,15 +48,29 @@ export const App: React.FC<{ itemsOverride?: RawItem[] }> = ({ itemsOverride }) 
                     </p>
                   )}
 
+                  {item.tags.length > 0 && (
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {item.tags.map((tag, idx) => (
+                        <span
+                          key={`${item.id}-tag-${idx}`}
+                          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-normal text-warm-800 bg-warm-100/90 border border-warm-200/90 select-none"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-warm-400 shrink-0" aria-hidden="true" />
+                          <span>{tag.label}</span>
+                        </span>
+                      ))}
+                    </div>
+                  )}
+
                   {item.links.length > 0 && (
-                    <div className="mt-2 flex flex-wrap gap-2 pt-1 border-t border-warm-100">
+                    <div className="mt-1 flex flex-wrap gap-2 pt-2 border-t border-warm-100">
                       {item.links.map((link, idx) => (
                         <a
                           key={`${item.id}-link-${idx}`}
                           href={link.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-pine-800 bg-pine-50 hover:bg-pine-100 active:scale-[0.98] border border-pine-200/60 transition-all touch-manipulation"
+                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium text-pine-900 bg-pine-100/70 hover:bg-pine-100 active:scale-[0.98] border border-pine-200/80 transition-all touch-manipulation cursor-pointer shadow-2xs"
                           aria-label={`Open link for ${item.title}: ${link.label}`}
                         >
                           <span className="truncate max-w-[200px]">{link.label}</span>
